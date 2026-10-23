@@ -162,6 +162,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void dispose() {
+        GestorDeRecord.getInstancia().actualizarRecord(tarro.getPuntuacion());
         batch.dispose();
         font.dispose();
         texturaTarro.dispose();
