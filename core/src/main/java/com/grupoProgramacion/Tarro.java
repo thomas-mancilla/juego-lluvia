@@ -30,7 +30,7 @@ public class Tarro {
             hitbox.x += velocidad;
         }
 
-        // Evitar que el tarro salga de los limites de la pantalla (asumiendo 800px de ancho)
+        // Evitar que el tarro salga de los limites de la pantalla
         if (hitbox.x < 0) hitbox.x = 0;
         if (hitbox.x > 800 - 64) hitbox.x = 800 - 64;
     }

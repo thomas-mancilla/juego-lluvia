@@ -3,13 +3,12 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class GotaAgua extends ObjetoCayendo {
 
-    public GotaAgua(Texture textura, float x, float y, float velocidad) {
-        super(textura, x, y, velocidad);
+    public GotaAgua(Texture textura, float x, float y, float velocidad, EstrategiaMovimiento estrategia) {
+        super(textura, x, y, velocidad, estrategia);
     }
 
     @Override
     public void alImpactar(Tarro tarro) {
-        // Logica de mecanicas: suman puntos
         tarro.sumarPuntos(10); 
     }
 }
