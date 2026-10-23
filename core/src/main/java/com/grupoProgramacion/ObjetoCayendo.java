@@ -4,10 +4,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
 public abstract class ObjetoCayendo implements Colisionable {
-    protected Rectangle hitbox;
-    protected Texture textura;
-    protected float velocidad;
-    protected EstrategiaMovimiento estrategiaMovimiento; 
+    private Rectangle hitbox;
+    private Texture textura;
+    private float velocidad;
+    private EstrategiaMovimiento estrategiaMovimiento; 
 
     public ObjetoCayendo(Texture textura, float x, float y, float velocidad, EstrategiaMovimiento estrategia) {
         this.textura = textura;
@@ -43,8 +43,8 @@ public abstract class ObjetoCayendo implements Colisionable {
         
     }
 
-    private void dibujar(SpriteBatch batch) {
-        batch.draw(textura, hitbox.x, hitbox.y);
+    public void dibujar(SpriteBatch batch) {
+        batch.draw(textura, hitbox.x, hitbox.y, hitbox.width, hitbox.height);
     }
     
     public Rectangle getHitbox() { return hitbox; }
