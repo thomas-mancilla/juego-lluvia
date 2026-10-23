@@ -140,7 +140,7 @@ public class Main extends ApplicationAdapter {
             if (!tarro.isGameOver()) {
                 obj.ejecutarCiclo(delta, tarro, batch);
             } else {
-                batch.draw(obj.textura, obj.getHitbox().x, obj.getHitbox().y, obj.getHitbox().width, obj.getHitbox().height);
+                obj.dibujar(batch);
             }
 
             if (obj.getHitbox().y < -64 || obj.getHitbox().overlaps(tarro.getHitbox())) {
