@@ -51,7 +51,7 @@ public class Tarro {
     }
 
     // Getters
-    public Rectangle getHitbox() { return new Rectangle(hitbox) }
+    public Rectangle getHitbox() { return new Rectangle(hitbox); }
     public int getPuntuacion() { return puntuacion; }
     public boolean isGameOver() { return gameOver; }
 }
