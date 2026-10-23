@@ -20,7 +20,7 @@ public class Tarro {
     }
 
     public void actualizarPosicion(float delta) {
-        if (gameOver) return; // Si es Game Over, no se mueve
+        if (gameOver) return; // Si pierde, no se mueve
 
         float velocidad = 400 * delta;
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
@@ -41,11 +41,11 @@ public class Tarro {
 
     // Metodos llamados por las clases hijas de ObjetoCayendo a traves de la interfaz Colisionable
     public void sumarPuntos(int puntos) {
-        this.puntuacion += puntos; // Las gotas de lluvia suman puntos[cite: 4]
+        this.puntuacion += puntos; // Las gotas de lluvia suman puntos
     }
 
     public void activarGameOver() {
-        this.gameOver = true; // Si toca una esponja, el agua se seca y es Game Over inmediato[cite: 4]
+        this.gameOver = true; // Si toca una esponja, el agua se seca y es Game Over inmediato
     }
 
     // Getters
