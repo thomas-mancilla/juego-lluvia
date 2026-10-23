@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
 public class Tarro {
-    // Encapsulamiento (GM-5): Atributos privados
     private Rectangle hitbox;
     private Texture textura;
     private int puntuacion;
@@ -32,7 +31,10 @@ public class Tarro {
 
         // Evitar que el tarro salga de los limites de la pantalla
         if (hitbox.x < 0) hitbox.x = 0;
-        if (hitbox.x > 800 - 64) hitbox.x = 800 - 64;
+        float limiteDerecho = Gdx.graphics.getWidth() - hitbox.width;
+        if (hitbox.x > limiteDerecho) {
+            hitbox.x = limiteDerecho;
+        }
     }
 
     public void dibujar(SpriteBatch batch) {
