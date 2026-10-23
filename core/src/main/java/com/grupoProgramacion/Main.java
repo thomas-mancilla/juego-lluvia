@@ -44,7 +44,7 @@ public class Main extends ApplicationAdapter {
 
     private Texture cargarTextura(String nombreBase, Color colorRespaldo) {
         String[] carpetas = {"", "assets/", "../assets/"};
-        String[] extensiones = {".jpg", ".jpeg", ".png", ".jpg.jpg", ".png.jpg", ".png.png"};
+        String[] extensiones = {".png",".jpg",".jpeg"};
 
         for (String carpeta : carpetas) {
             for (String ext : extensiones) {
