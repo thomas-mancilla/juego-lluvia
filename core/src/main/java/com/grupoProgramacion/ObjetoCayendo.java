@@ -47,5 +47,5 @@ public abstract class ObjetoCayendo implements Colisionable {
         batch.draw(textura, hitbox.x, hitbox.y, hitbox.width, hitbox.height);
     }
     
-    public Rectangle getHitbox() { return hitbox; }
+    public Rectangle getHitbox() { return new Rectangle(hitbox); }
 }
