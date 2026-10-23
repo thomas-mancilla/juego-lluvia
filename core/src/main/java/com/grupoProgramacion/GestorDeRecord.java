@@ -1,11 +1,16 @@
 package com.grupoProgramacion;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
+
 public class GestorDeRecord {
-    private static GestorDeRecord instancia; //Aplicacion de Singleton
+    private static GestorDeRecord instancia;
     private int recordGlobal;
+    private final Preferences preferencias;
 
     private GestorDeRecord() {
-        this.recordGlobal = 0; 
+        preferencias = Gdx.app.getPreferences("juego-lluvia");
+        recordGlobal = preferencias.getInteger("recordGlobal", 0);
     }
 
     public static GestorDeRecord getInstancia() {
@@ -18,6 +23,8 @@ public class GestorDeRecord {
     public void actualizarRecord(int nuevaPuntuacion) {
         if (nuevaPuntuacion > recordGlobal) {
             recordGlobal = nuevaPuntuacion;
+            preferencias.putInteger("recordGlobal", recordGlobal);
+            preferencias.flush();
         }
     }
 
