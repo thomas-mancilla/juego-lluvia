@@ -18,11 +18,9 @@ public abstract class ObjetoCayendo implements Colisionable {
 
     public final void ejecutarCiclo(float delta, Tarro tarro, SpriteBatch batch) {
         moverse(delta);
-        verificarLimites();
         dibujar(batch);
-        
+
         if (hitbox.overlaps(tarro.getHitbox())) {
-            reproducirSonidoImpacto();
             alImpactar(tarro);
         }
     }
@@ -33,15 +31,6 @@ public abstract class ObjetoCayendo implements Colisionable {
         }
     }
 
-    private void verificarLimites() {
-        if (hitbox.y < -64) {
-            
-        }
-    }
-    
-    private void reproducirSonidoImpacto() {
-        
-    }
 
     public void dibujar(SpriteBatch batch) {
         batch.draw(textura, hitbox.x, hitbox.y, hitbox.width, hitbox.height);
