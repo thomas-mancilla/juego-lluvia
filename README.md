@@ -57,7 +57,7 @@ Requisitos previos
 
 Antes de ejecutar el videojuego, se necesita:
 
-Tener instalado un JDK compatible con la configuración de Gradle del proyecto. (JAVA 17)
+Tener instalado un JDK compatible con la configuración de Gradle del proyecto. (JAVA 11)
 
 Disponer de los archivos del proyecto Juego Lluvia, incluyendo el archivo gradlew.bat y los archivos de configuración de Gradle.
 
