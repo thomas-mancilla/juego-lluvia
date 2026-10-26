@@ -1,33 +1,65 @@
-# juego-lluvia
+# Juego Lluvia
 
-A [libGDX](https://libgdx.com/) project generated with [gdx-liftoff](https://github.com/libgdx/gdx-liftoff).
+## Descripción del proyecto
 
-This project was generated with a template including simple application launchers and an `ApplicationAdapter` extension that draws libGDX logo.
+Juego Lluvia es un videojuego desarrollado en Java utilizando la biblioteca libGDX. El jugador controla un tarro que debe recoger gotas de agua que caen desde la parte superior de la pantalla y evitar las esponjas enemigas. El objetivo es obtener la mayor puntuación posible sin perder la partida.
 
-## Platforms
+## Objetivo del juego
 
-- `core`: Main module with the application logic shared by all platforms.
-- `lwjgl3`: Primary desktop platform using LWJGL3; was called 'desktop' in older docs.
+El jugador debe mover el tarro horizontalmente para recoger las gotas de agua y acumular puntos. Al mismo tiempo, debe evitar las esponjas, ya que colisionar con una de ellas provoca el fin de la partida.
 
-## Gradle
+## Controles
 
-This project uses [Gradle](https://gradle.org/) to manage dependencies.
-The Gradle wrapper was included, so you can run Gradle tasks using `gradlew.bat` or `./gradlew` commands.
-Useful Gradle tasks and flags:
+- **Flecha izquierda:** mover el tarro hacia la izquierda.
+- **Flecha derecha:** mover el tarro hacia la derecha.
+- **Barra espaciadora:** reiniciar la partida después de Game Over.
 
-- `--continue`: when using this flag, errors will not stop the tasks from running.
-- `--daemon`: thanks to this flag, Gradle daemon will be used to run chosen tasks.
-- `--offline`: when using this flag, cached dependency archives will be used.
-- `--refresh-dependencies`: this flag forces validation of all dependencies. Useful for snapshot versions.
-- `build`: builds sources and archives of every project.
-- `cleanEclipse`: removes Eclipse project data.
-- `cleanIdea`: removes IntelliJ project data.
-- `clean`: removes `build` folders, which store compiled classes and built archives.
-- `eclipse`: generates Eclipse project data.
-- `idea`: generates IntelliJ project data.
-- `lwjgl3:jar`: builds application's runnable jar, which can be found at `lwjgl3/build/libs`.
-- `lwjgl3:run`: starts the application.
-- `test`: runs unit tests (if any).
+## Reglas del juego
 
-Note that most tasks that are not specific to a single project can be run with `name:` prefix, where the `name` should be replaced with the ID of a specific project.
-For example, `core:clean` removes `build` folder only from the `core` project.
+- Cada gota de agua recogida suma **10 puntos**.
+- Las esponjas son objetos enemigos que el jugador debe evitar.
+- Si una esponja colisiona con el tarro, se activa el estado **Game Over**.
+- Los objetos pueden caer verticalmente o desplazarse en diagonal.
+- La velocidad de aparición y movimiento de los objetos aumenta conforme avanza el tiempo de juego, haciendo que la partida sea progresivamente más difícil.
+- La pantalla muestra la puntuación actual y el récord global.
+
+## Récord global
+
+El juego mantiene un récord global que se actualiza cuando la puntuación de una partida supera el récord anterior. El valor se guarda utilizando `Preferences` de libGDX, de modo que puede recuperarse en futuras ejecuciones.
+
+## Estructura del proyecto
+
+Las principales clases y responsabilidades son:
+
+- **Main:** inicializa el juego, administra el ciclo de actualización y dibujo, genera los objetos y controla el estado de la partida.
+- **Tarro:** representa al jugador, controla su movimiento, su hitbox, la puntuación y el estado Game Over.
+- **ObjetoCayendo:** clase abstracta que contiene el comportamiento común de los objetos que caen, como el movimiento, el dibujo y la comprobación de colisiones.
+- **GotaAgua:** representa una gota y suma puntos al colisionar con el tarro.
+- **EsponjaEnemiga:** representa una esponja y provoca Game Over al colisionar con el tarro.
+- **Colisionable:** define el comportamiento que deben implementar los objetos que reaccionan a una colisión.
+- **EstrategiaMovimiento:** permite definir distintas formas de movimiento.
+- **MovimientoVertical:** implementa el desplazamiento vertical.
+- **MovimientoDiagonal:** implementa el desplazamiento diagonal.
+- **ObjetoCayendoBuilder:** facilita la construcción de gotas y esponjas mediante la configuración de sus propiedades.
+- **GestorDeRecord:** administra el récord global utilizando el patrón Singleton.
+
+## Tecnologías utilizadas
+
+- Java.
+- libGDX para el desarrollo del videojuego.
+- Gradle para la configuración y construcción del proyecto.
+
+## Ejecución del proyecto
+
+El proyecto utiliza Gradle y la estructura multiplataforma de libGDX. Para ejecutarlo, abre el proyecto en un entorno compatible con Gradle y utiliza la configuración de ejecución correspondiente al módulo de escritorio. Antes de entregar, verifica que las instrucciones funcionen en el entorno utilizado por el equipo.
+
+## Patrones de diseño aplicados
+
+- **Singleton:** centraliza la administración del récord global en `GestorDeRecord`.
+- **Strategy:** permite utilizar distintas estrategias de movimiento mediante `EstrategiaMovimiento`.
+- **Template Method:** define en `ObjetoCayendo` una secuencia común para mover, dibujar y comprobar colisiones.
+- **Builder:** permite configurar y construir objetos mediante `ObjetoCayendoBuilder`.
+
+## Estado del proyecto
+
+Esta documentación describe las funcionalidades identificadas en el código fuente revisado. La ejecución y compilación deben comprobarse en el entorno de desarrollo antes de considerar el proyecto validado.
