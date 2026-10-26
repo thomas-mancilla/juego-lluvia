@@ -51,7 +51,35 @@ Las principales clases y responsabilidades son:
 
 ## Ejecución del proyecto
 
-El proyecto utiliza Gradle y la estructura multiplataforma de libGDX. Para ejecutarlo, abre el proyecto en un entorno compatible con Gradle y utiliza la configuración de ejecución correspondiente al módulo de escritorio. Antes de entregar, verifica que las instrucciones funcionen en el entorno utilizado por el equipo.
+Cómo ejecutar el proyecto
+
+Requisitos previos
+
+Antes de ejecutar el videojuego, se necesita:
+
+Tener instalado un JDK compatible con la configuración de Gradle del proyecto. (JAVA 17)
+
+Disponer de los archivos del proyecto Juego Lluvia, incluyendo el archivo gradlew.bat y los archivos de configuración de Gradle.
+
+Utilizar Windows para seguir las instrucciones de terminal indicadas a continuación.
+
+Ejecución en Windows
+
+Descargar o clonar el repositorio del proyecto.
+
+Descomprimir el archivo, si se descargó en formato ZIP.
+
+Abrir una terminal dentro de la carpeta principal del proyecto, donde se encuentra el archivo gradlew.bat.
+
+Ejecutar el siguiente comando para iniciar el videojuego:
+
+gradlew.bat lwjgl3:run
+
+Esperar a que Gradle complete las tareas necesarias y abra la ventana del videojuego.
+
+Ejecución desde un entorno de desarrollo
+
+También es posible importar el proyecto en un entorno compatible con Gradle, como NetBeans o IntelliJ IDEA. Una vez importado, se debe localizar la tarea run del módulo de escritorio lwjgl3 y ejecutarla.
 
 ## Patrones de diseño aplicados
 
