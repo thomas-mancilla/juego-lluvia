@@ -27,6 +27,7 @@ public class Main extends ApplicationAdapter {
 
     private float tiempoUltimoObjeto;
     private float tiempoTotalJuego;
+    private boolean mostrandoInicio = true;
 
     @Override
     public void create() {
@@ -107,9 +108,43 @@ public class Main extends ApplicationAdapter {
 
         tiempoUltimoObjeto = 0;
     }
+    private void mostrarPantallaInicio() {
+        float alto = Gdx.graphics.getHeight();
+
+        Gdx.gl.glClearColor(0, 0, 0.2f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        batch.begin();
+
+        font.draw(batch, "JUEGO LLUVIA", 40, alto - 60);
+
+        font.draw(batch, "Despues de una larga sequia, por fin comienza a llover.", 40, alto - 110);
+        font.draw(batch, "Recoge las gotas con tu tarro para juntar agua.", 40, alto - 140);
+        font.draw(batch, "Evita las esponjas: si una cae dentro, absorbera el agua", 40, alto - 170);
+        font.draw(batch, "y terminara la partida.", 40, alto - 200);
+
+        font.draw(batch, "Flechas izquierda y derecha: mover el tarro.", 40, alto - 260);
+        font.draw(batch, "Cada gota recogida suma 10 puntos.", 40, alto - 290);
+
+        font.draw(batch, "Presiona ENTER para comenzar.", 40, alto - 350);
+
+        batch.end();
+    }
+    
 
     @Override
     public void render() {
+
+        if (mostrandoInicio) {
+            mostrarPantallaInicio();
+
+            if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+                mostrandoInicio = false;
+            }
+
+            return;
+        }
+
         float delta = Gdx.graphics.getDeltaTime();
         float altoPantalla = Gdx.graphics.getHeight();
 
