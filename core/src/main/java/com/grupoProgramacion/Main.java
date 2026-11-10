@@ -188,7 +188,7 @@ public class Main extends ApplicationAdapter {
 
         if (tarro.isGameOver()) {
             GestorDeRecord.getInstancia().actualizarRecord(tarro.getPuntuacion());
-            font.draw(batch, "GAME OVER! El agua se seco", 220, altoPantalla / 2f + 10);
+            font.draw(batch, "GAME OVER! La esponja absorbio el agua", 100, altoPantalla / 2f + 10);
             font.draw(batch, "Presiona ESPACIO para reintentar", 200, altoPantalla / 2f - 15);
         }
 
